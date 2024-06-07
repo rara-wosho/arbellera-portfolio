@@ -60,6 +60,7 @@ section {
 
 .cta {
   display: inline-block;
+  border-radius: 0;
   padding: 10px 32px !important;
   color: white;
   background-color: transparent;
@@ -304,13 +305,17 @@ section {
   max-width: 700px;
   margin: 0 auto;
 }
-
-/* #services .service-bottom {
+/* 
+#services .service-bottom {
   display: flex;
   align-items: center;
   justify-content: start;
+  flex-direction: column;
 } */
-
+.service-bottom .col {
+  display: flex;
+  align-items: center;
+}
 #services .service-item {
   width: 100%;
   display: flex;
@@ -325,6 +330,7 @@ section {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin-inline: auto;
 }
 #services .service-item::after {
   content: "";
@@ -369,7 +375,7 @@ section {
   stroke: var(--bg-white);
 }
 
-.exp-time li p{
+.exp-time li p {
   font-size: 1.2rem;
 }
 
@@ -657,8 +663,8 @@ section {
 .text-main {
   color: var(--bg-accent) !important;
 }
-.fs-7{
-  font-size: .9rem ;
+.fs-7 {
+  font-size: 0.9rem;
 }
 
 /* Keyframes */
