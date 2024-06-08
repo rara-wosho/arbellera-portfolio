@@ -3,10 +3,14 @@
 :root {
   --bg-accent: rgb(190, 96, 224);
   --bg-primary: ;
-  --bg-primary-linear:linear-gradient(60deg, #29323c 0%, #485563 100%);
+  --bg-primary-linear: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
   --bg-white: rgba(220, 220, 220, 1);
+  --bg-transparent: rgba(106, 99, 109, 0.1);
+  --bg-secondary-transparent: rgba(246, 223, 255, 0.306);
 
   --txt-dark: rgba(50, 50, 50, 1);
+  --txt-primary: rgb(105, 0, 143);
 }
 
 * {
@@ -16,6 +20,9 @@
   font-family: "Montserrat", sans-serif !important;
 }
 
+body {
+  background: rgb(247, 248, 255) !important;
+}
 a {
   text-decoration: none;
 }
@@ -281,13 +288,39 @@ section {
   animation-delay: 0.5s;
 }
 
+.hero .socials {
+  gap: 8px;
+}
 .hero .socials .social-icon {
-  color: var(--bg-white);
-  border: 1px solid var(--bg-white);
-  padding: 14px 8px;
+  width: 40px;
   border-radius: 50%;
-  margin-right: 1rem;
+  aspect-ratio: 5/5;
+  display: flex;
+  border: 1px solid var(--bg-accent);
   text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s;
+}
+
+.hero .socials .social-icon:hover {
+  background: var(--bg-accent);
+
+}
+
+.hero .socials .social-icon svg {
+  stroke: var(--bg-accent);
+  transition: all .4s;
+}
+.hero .socials .social-icon:nth-child(3) svg {
+  fill: var(--bg-accent);
+  transition: all .4s;
+}
+.hero .socials .social-icon:hover svg {
+  stroke: var(--bg-white);
+}
+.hero .socials .social-icon:nth-child(3):hover svg {
+  fill: var(--bg-white);
 }
 /* #hero h1:nth-child(1) span {
   animation-delay: 0.5s;
@@ -323,7 +356,10 @@ section {
 .service-bottom .col {
   display: flex;
   align-items: center;
+  position: relative;
+  margin-bottom: 16px;
 }
+
 #services .service-item {
   width: 100%;
   display: flex;
@@ -332,14 +368,15 @@ section {
   flex-direction: column;
   padding: 30px;
   border-radius: 10px;
-  background-image: url(img/pexels-anete-lusina-4792480.jpg);
-  background-size: cover;
   margin: 10px 5%;
   position: relative;
   z-index: 1;
   overflow: hidden;
   margin-inline: auto;
   transition: all 0.4s;
+  background-image: url("img/pexels-anete-lusina-4792480.jpg");
+  background-size: cover;
+  height: 100%;
 }
 
 #services .service-item:hover {
@@ -357,8 +394,8 @@ section {
   z-index: -1;
 }
 #services .service-bottom .icon {
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 50px;
   margin-bottom: 20px;
 }
 #services .service-item h2 {
@@ -513,23 +550,32 @@ section {
   position: relative;
   border: 10px solid white;
 }
-/* #about .col-left .about-img::after {
+#about .col-left .about-img::after {
   content: "";
+  top: 0;
+  left: 0;
   position: absolute;
-  left: -33px;
-  top: 19px;
-  height: 98%;
-  width: 98%;
-  border: 7px solid var(--bg-accent);
+  height: 100%;
+  width: 100%;
+  background: var(--bg-accent);
   z-index: -1;
-} */
+  transform: rotate(9deg);
+  border-radius: 8px;
+  transition: all 0.4s;
+  display: none;
+}
+
+#about .about .col-left:hover .about-img::after {
+  transform: rotate(0);
+}
 /* End About Section */
 
 /* expertise */
 #expertise .nav-pills .nav-link {
-  color: var(--txt-dark);
+  color: var(--txt-primary) !important;
   font-size: 1.2rem;
   border-radius: 0;
+  font-weight: 500;
 }
 
 #expertise .nav-pills .nav-link.active {
@@ -554,12 +600,12 @@ section {
   isolation: isolate;
 }
 
-#expertise .tab-pane::after{
+#expertise .tab-pane::after {
   position: absolute;
   content: "";
   background: var(--bg-primary-linear);
   inset: 0;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 #expertise .expertise {
@@ -717,24 +763,72 @@ section {
 /* End Footer */
 
 /* utility classes */
+.bg-secondary-transparent {
+  background: var(--bg-secondary-transparent);
+}
+
+.bg-transparentt {
+  background: var(--bg-transparent) !important;
+}
+
 .txt-main {
-  color: var(--bg-accent);
+  color: var(--txt-primary) !important;
 }
 .line-left {
   padding-left: 1rem;
   border-left: 3px solid var(--bg-accent);
 }
+
 .btn-main {
+  white-space: nowrap;
   display: inline-block;
-  padding: 10px 18px;
+  padding: 12px 20px;
   text-decoration: none;
   border: 0;
   outline: none;
   background: var(--bg-accent);
   color: white;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
+
+.btn-main::after {
+  content: "";
+  position: absolute;
+  height: 130%;
+  width: 3px;
+  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.6);
+  top: -30px;
+  left: -20px;
+  transform: rotate(15deg);
+  transition: all 0.3s ease-out;
+  box-shadow: 0 0 10px 15px rgba(255, 255, 255, 0.6);
+  z-index: -1;
+}
+.btn-main:hover {
+  transform: scale(103%);
+}
+
+.btn-main:hover::after {
+  left: 120%;
+}
+
 .fs-7 {
   font-size: 0.9rem;
+}
+
+.my-badge {
+  position: absolute;
+  padding: 0 10px;
+  left: 9rem;
+  top: 6rem;
+  background: var(--bg-secondary-transparent);
 }
 
 /* Keyframes */
@@ -815,6 +909,10 @@ section {
   #about .about {
     flex-direction: row;
   }
+
+  .about .about-name {
+    font-size: 3rem;
+  }
   #about .col-left {
     width: 700px;
     /* height: 400px; */
@@ -835,6 +933,10 @@ section {
   }
   #about .col-right h1 {
     text-align: left;
+  }
+
+  #about .col-left .about-img::after {
+    display: block;
   }
   /* End About */
 
