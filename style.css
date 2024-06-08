@@ -2,6 +2,7 @@
 
 :root {
   --bg-accent: rgb(190, 96, 224);
+  --bg-accent-linear: linear-gradient(160deg, rgb(235, 78, 243) 0%, rgb(187, 77, 227) 100%);
   --bg-primary: ;
   --bg-primary-linear: linear-gradient(60deg, #29323c 0%, #485563 100%);
 
@@ -305,7 +306,7 @@ section {
 }
 
 .hero .socials .social-icon:hover {
-  background: var(--bg-accent);
+  background: var(--bg-accent-linear);
 }
 
 .hero .socials .social-icon svg {
@@ -540,7 +541,8 @@ section {
   height: 100%;
   width: 100%;
   position: relative;
-  border: 10px solid white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+
 }
 #about .col-left .about-img::after {
   content: "";
@@ -549,7 +551,7 @@ section {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: var(--bg-accent);
+  background: var(--bg-accent-linear);
   z-index: -1;
   transform: rotate(9deg);
   border-radius: 8px;
@@ -570,8 +572,12 @@ section {
   font-weight: 500;
 }
 
+#expertise nav{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
 #expertise .nav-pills .nav-link.active {
-  background: var(--bg-accent) !important;
+  background: var(--bg-accent-linear) !important;
   border-radius: 0;
   color: var(--bg-white) !important;
 }
@@ -587,9 +593,9 @@ section {
   background-position: center;
   background-size: cover;
   padding: 1rem;
-  min-height: 600px;
   position: relative;
   isolation: isolate;
+  padding-block: 16rem;
 }
 
 #expertise .tab-pane::after {
@@ -598,6 +604,7 @@ section {
   background: var(--bg-primary-linear);
   inset: 0;
   opacity: 0.9;
+  z-index: -1;
 }
 
 #expertise .expertise {
@@ -607,6 +614,54 @@ section {
   background-image: url("img/pexels-emily-ranquist-493228-1205651.jpg");
 }
 
+.skill-sets .skill-item,
+.skill-sets .col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.skill-sets .skill-item{
+  position: relative;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(209, 209, 209, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.skill-sets .skill-item span.yrs{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  padding: 2px 8px;
+  border-radius: 100vw;
+  font-size: 1.2rem;
+  background: rgba(255,255,255,.5);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.skill-sets .skill-item p{
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.skill-item .icon-wrapper{
+  padding: 2rem;
+}
+
+.skill-item .icon-wrapper img{
+  width: 60px;
+  height: 60px;
+}
 /* contact Section */
 /* #contact .contact {
   flex-direction: column;
@@ -755,7 +810,7 @@ section {
 #form .form-header {
   position: absolute;
   top: -2rem;
-  background: var(--bg-accent);
+  background: var(--bg-accent-linear);
   padding: 8px 52px;
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
 }
@@ -853,7 +908,7 @@ section {
   text-decoration: none;
   border: 0;
   outline: none;
-  background: var(--bg-accent);
+  background: var(--bg-accent-linear);
   color: white;
   font-size: 1.6rem;
   letter-spacing: 2px;
@@ -894,11 +949,13 @@ section {
   border: 2px solid var(--bg-accent);
   transition: all 0.4s;
   text-decoration: none;
+  background: linear-gradient(190deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-main-outline:hover {
   color: var(--txt-white);
-  background: var(--bg-accent);
+  background: var(--bg-accent-linear);
 }
 
 .fs-7 {
@@ -1132,6 +1189,10 @@ section {
     color: var(--txt-dark);
     font-size: 1.7rem;
   }
+
+  .skill-sets .skill-item{
+    width: 60%;
+  }
   /* End contact  */
 }
 /* End Media Query For Tablet */
@@ -1140,6 +1201,12 @@ section {
 @media only screen and (max-width: 992px) {
   #education .box::after {
     width: 12px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .skill-sets .skill-item{
+    width: 70%;
   }
 }
 
@@ -1165,6 +1232,10 @@ section {
   }
   #header .nav-list ul a:after {
     display: none;
+  }
+
+  .skill-sets .skill-item{
+    width: 70%;
   }
   /* End header */
 }

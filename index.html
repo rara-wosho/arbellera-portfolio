@@ -191,7 +191,9 @@
             </svg>
             My Email : email@gmail.com
           </p>
-          <div class="d-flex justify-content-center justify-content-md-start scroll-fade-left del-5">
+          <div
+            class="d-flex justify-content-center justify-content-md-start scroll-fade-left del-5"
+          >
             <a
               href="./resume/maearbelleracv.pdf"
               class="btn-main-outline rounded-4"
@@ -263,12 +265,45 @@
           aria-labelledby="nav-home-tab"
           tabindex="0"
         >
-          <div class="w-100 row row-cols-5">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+          <div
+            class="skill-sets mx-auto row row-cols-2 row-cols-lg-4 px-0 px-lg-5"
+          >
+            <div class="col mb-3 mb-lg-0">
+              <div class="skill-item scroll-fade-up del-1">
+                <span class="yrs">4 yrs</span>
+                <div class="icon-wrapper">
+                  <img src="icons/PS-Logo-in-Circle.png" alt="" />
+                </div>
+                <p class="text-light text-center">Planswift</p>
+              </div>
+            </div>
+            <div class="col mb-3 mb-lg-0">
+              <div class="skill-item scroll-fade-up del-2">
+                <span class="yrs">4 yrs</span>
+                <div class="icon-wrapper">
+                  <img src="icons/icons8-autocad-96.png" alt="" />
+                </div>
+                <p class="text-light text-center">AutoCAD 2D</p>
+              </div>
+            </div>
+            <div class="col mb-3 mb-lg-0">
+              <div class="skill-item scroll-fade-up del-3">
+                <span class="yrs">4 yrs</span>
+                <div class="icon-wrapper">
+                  <img src="icons/icons8-google-sketchup-96.png" alt="" />
+                </div>
+                <p class="text-light text-center">SketchUp 3D</p>
+              </div>
+            </div>
+            <div class="col mb-3 mb-lg-0">
+              <div class="skill-item scroll-fade-up del-4">
+                <span class="yrs">4 yrs</span>
+                <div class="icon-wrapper">
+                  <img src="icons/icons8-ms-office-96.png" alt="" />
+                </div>
+                <p class="text-light text-center">MS Office Applications</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -287,7 +322,7 @@
           aria-labelledby="nav-contact-tab"
           tabindex="0"
         >
-          ...
+          license
         </div>
       </div>
     </section>
@@ -688,51 +723,6 @@
     </section>
     <!-- End Projects Section -->
 
-    <!-- Contact Section -->
-    <!-- <section id="contact">
-      <div class="contact container">
-        <div class="scroll-fade-up mb-5">
-          <h1 class="section-title">Contact <span>info</span></h1>
-        </div>
-        <div class="contact-items">
-          <div class="contact-item scroll-fade-up del-1">
-            <div class="icon">
-              <img src="https://img.icons8.com/bubbles/100/000000/phone.png" />
-            </div>
-            <div class="contact-info">
-              <h1>Phone</h1>
-              <h2>+92 300 835 5143</h2>
-              <h2>+1 234 123 1234</h2>
-            </div>
-          </div>
-          <div class="contact-item scroll-fade-up del-2">
-            <div class="icon">
-              <img
-                src="https://img.icons8.com/bubbles/100/000000/new-post.png"
-              />
-            </div>
-            <div class="contact-info">
-              <h1>Email</h1>
-              <h2>email@gmail.com</h2>
-              <h2>abcd@gmail.com</h2>
-            </div>
-          </div>
-          <div class="contact-item scroll-fade-up del-3">
-            <div class="icon">
-              <img
-                src="https://img.icons8.com/bubbles/100/000000/map-marker.png"
-              />
-            </div>
-            <div class="contact-info">
-              <h1>Address</h1>
-              <h2>Address</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- End Contact Section -->
-
     <!-- contact form -->
     <section
       id="contact-form"
@@ -766,7 +756,7 @@
               >
                 <img
                   style="width: 50px; height: 50px"
-                  src="https://img.icons8.com/bubbles/100/000000/new-post.png"
+                  src="https://img.icons8.com/bubbles/100/000000/phone.png"
                 />
                 <div
                   class="ms-0 ms-lg-3 d-flex flex-column justify-content-center align-items-center align-items-lg-start"
@@ -856,9 +846,11 @@
                 ></textarea>
               </div>
 
-              <button class="btn-main" type="submit">Send Message</button>
+              <button id="send-btn" class="btn-main" type="submit">
+                Send Message
+              </button>
 
-              <div class="p-3 border" id="result"></div>
+              <div class="p-3 my-5" id="result"></div>
             </form>
           </div>
         </div>
@@ -920,16 +912,21 @@
 
     <script src="https://web3forms.com/client/script.js" async defer></script>
 
-    <!-- contact form -->
-    <script>
+    <!-- contact form from web3forms -->
+    <!-- <script>
       const form = document.getElementById("form");
       const result = document.getElementById("result");
+      const sendBtn = document.getElementById("send-btn");
+      console.log(sendBtn);
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         const formData = new FormData(form);
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
+
+        sendBtn.innerHTML = "Sending..";
+        sendBtn.disable = true;
         result.innerHTML = "Please wait...";
 
         fetch("https://api.web3forms.com/submit", {
@@ -959,6 +956,61 @@
               result.style.display = "none";
             }, 3000);
           });
+      });
+    </script> -->
+
+    <!-- converted to jquery -->
+    <script>
+      $(document).ready(function () {
+        const form = $("#form");
+        const result = $("#result");
+        const sendBtn = $("#send-btn");
+        console.log(sendBtn);
+
+        form.on("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+          const object = {};
+          formData.forEach((value, key) => (object[key] = value));
+          const json = JSON.stringify(object);
+
+          sendBtn.html("Sending..");
+          sendBtn.prop("disabled", true);
+          result.html("Please wait...");
+
+          const url = "https://api.web3forms.com/submi";
+
+          fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: json,
+          })
+            .then(async (response) => {
+              let json = await response.json();
+              if (response.status == 200) {
+                result.html("Form submitted successfully");
+              } else {
+                console.log(response);
+                result.html(json.message);
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              result.html("Something went wrong!");
+            })
+            .then(function () {
+              form[0].reset();
+              sendBtn.html("Submit");
+              sendBtn.prop("disabled", false);
+
+              setTimeout(() => {
+                result.html("");
+              }, 5000);
+            });
+        });
       });
     </script>
 
