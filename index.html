@@ -30,7 +30,7 @@
               <div class="bar"></div>
             </div>
             <ul class="mb-0">
-              <li><a href="#hero" data-after="Home">Home</a></li>
+              <li><a class="active" href="#hero" data-after="Home">Home</a></li>
               <li><a href="#about" data-after="About">About</a></li>
               <!-- <li><a href="#services" data-after="Service">Experiences</a></li> -->
               <li><a href="#projects" data-after="Projects">Works</a></li>
@@ -1381,6 +1381,36 @@
             .appendTo("body");
           a[0].click();
           a.remove();
+        });
+
+        const sections = $("section");
+        const navLinks = $("ul.mb-0 li a");
+
+        function setActiveLink() {
+          let scrollTop = $(window).scrollTop();
+          let windowHeight = $(window).height();
+
+          sections.each(function () {
+            let sectionTop = $(this).offset().top;
+            let sectionHeight = $(this).outerHeight();
+
+            if (
+              scrollTop + windowHeight / 2 >= sectionTop &&
+              scrollTop + windowHeight / 2 < sectionTop + sectionHeight
+            ) {
+              navLinks.removeClass("active");
+              let activeLink = navLinks.filter(
+                `[href="#${$(this).attr("id")}"]`
+              );
+              activeLink.addClass("active");
+            }
+          });
+        }
+
+        setActiveLink(); // Call on page load
+
+        $(window).on("scroll", function () {
+          setActiveLink(); // Call on scroll
         });
       });
     </script>

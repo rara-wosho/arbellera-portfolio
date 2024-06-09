@@ -154,6 +154,11 @@ section {
   text-transform: uppercase;
   padding: 20px;
   display: block;
+  transition: all .3s;
+  position: relative;
+}
+#header .nav-list ul a.active{
+  color: var(--bg-accent);
 }
 #header .nav-list ul a::after {
   content: attr(data-after);
@@ -167,10 +172,23 @@ section {
   z-index: -1;
   transition: 0.3s ease letter-spacing;
 }
+
 #header .nav-list ul li:hover a::after {
   transform: translate(-50%, -50%) scale(1);
   letter-spacing: initial;
 }
+
+#header .nav-list ul a.active::before{
+  content: "";
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform:translateX(-50%);
+  width: 55%;
+  height: 2.5px;
+  background: var(--bg-accent);
+}
+
 #header .nav-list ul li:hover a {
   color: var(--bg-accent);
 }
