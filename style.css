@@ -400,7 +400,7 @@ section {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
   flex-direction: column;
   padding: 30px;
   border-radius: 10px;
