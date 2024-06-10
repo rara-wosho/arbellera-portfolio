@@ -154,10 +154,10 @@ section {
   text-transform: uppercase;
   padding: 20px;
   display: block;
-  transition: all .3s;
+  transition: all 0.3s;
   position: relative;
 }
-#header .nav-list ul a.active{
+#header .nav-list ul a.active {
   color: var(--bg-accent);
 }
 #header .nav-list ul a::after {
@@ -178,12 +178,12 @@ section {
   letter-spacing: initial;
 }
 
-#header .nav-list ul a.active::before{
+#header .nav-list ul a.active::before {
   content: "";
   position: absolute;
   bottom: 1.4rem;
   left: 50%;
-  transform:translateX(-50%);
+  transform: translateX(-50%);
   width: 55%;
   height: 2.5px;
   background: var(--bg-accent);
@@ -316,6 +316,14 @@ section {
 .hero .socials {
   gap: 8px;
 }
+
+.hero p#dynamic-role {
+  height: 35px;
+  border-left: 4px solid var(--bg-accent);
+  display: flex;
+  align-items: center;
+}
+
 .hero .socials .social-icon {
   width: 40px;
   border-radius: 50%;
@@ -347,7 +355,7 @@ section {
   fill: var(--bg-white);
 }
 
-.hero .socials .social-icon:nth-child(3){
+.hero .socials .social-icon:nth-child(3) {
   opacity: 0;
 }
 /* #hero h1:nth-child(1) span {
@@ -569,11 +577,11 @@ section {
   align-items: end;
 }
 
-#other-works .planswift-list{
+#other-works .planswift-list {
   list-style-type: none;
 }
 
-#other-works .planswift-list li{
+#other-works .planswift-list li {
   cursor: pointer;
   background: var(--bg-transparent);
   position: relative;
@@ -582,37 +590,37 @@ section {
   overflow: hidden;
   isolation: isolate;
 }
-#other-works .planswift-list li::after{
+#other-works .planswift-list li::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   inset: 0;
-  width:100%;
+  width: 100%;
   background: var(--bg-accent-linear);
   z-index: -1;
-  transition: opacity .3s ;
+  transition: opacity 0.3s;
   opacity: 0;
 }
 
-#other-works .planswift-list li:hover{
+#other-works .planswift-list li:hover {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
-#other-works .planswift-list li:hover::after{
+#other-works .planswift-list li:hover::after {
   opacity: 1;
 }
 
-#other-works .planswift-list li p{
+#other-works .planswift-list li p {
   font-size: 1.6rem;
   font-weight: 500;
   padding-right: 8px;
 }
-#other-works .planswift-list li:hover p{
+#other-works .planswift-list li:hover p {
   color: var(--txt-white);
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-#other-works .planswift-list li svg{
+#other-works .planswift-list li svg {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -620,9 +628,9 @@ section {
   transform: translateY(-50%);
   right: 1rem;
   fill: var(--bg-accent);
-  transition: all .3s;
+  transition: all 0.3s;
 }
-#other-works .planswift-list li:hover svg{
+#other-works .planswift-list li:hover svg {
   fill: var(--bg-white);
 }
 
@@ -1000,12 +1008,12 @@ section {
   border-radius: 4px;
   width: 100%;
   font-size: 1.4rem;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 #form .input-wrapper input:hover,
 #form .input-wrapper textarea:hover,
 #form .input-wrapper input:focus,
-#form .input-wrapper textarea:focus{
+#form .input-wrapper textarea:focus {
   border: 2px solid var(--txt-primary-light);
 }
 
@@ -1156,7 +1164,7 @@ button.view-btn {
   align-items: center;
   font-size: 15px;
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
-  color:var(--txt-dark);
+  color: var(--txt-dark);
 }
 
 button.view-btn:hover {
@@ -1199,7 +1207,7 @@ button.view-btn:active {
   white-space: nowrap;
 }
 
-.developer{
+.developer {
   text-decoration: none;
   color: var(--txt-primary-light);
 }

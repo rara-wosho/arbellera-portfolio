@@ -23,3 +23,58 @@ menu_item.forEach((item) => {
 		mobile_menu.classList.toggle('active');
 	});
 });
+
+function initTypingAnimation() {
+    const roles = ["Civil Engineer", "Draftsman", "Estimator"];
+    let currentIndex = 0;
+    let currentLetterIndex = 0;
+    let typingIntervalId = null;
+
+    setTimeout(() => startTypingAnimation(), 300);
+
+    function startTypingAnimation() {
+      clearInterval(typingIntervalId);
+      currentLetterIndex = 0;
+      typingIntervalId = setInterval(typeNextLetter, 50);
+    }
+
+    function typeNextLetter() {
+      const dynamicRoleElement = document.getElementById("dynamic-role");
+      const currentRole = roles[currentIndex];
+      const nextLetter = currentRole[currentLetterIndex];
+      dynamicRoleElement.textContent += nextLetter;
+      currentLetterIndex++;
+
+      if (currentLetterIndex >= currentRole.length) {
+        clearInterval(typingIntervalId);
+        setTimeout(startErasingAnimation, 1400);
+      }
+    }
+
+    function startErasingAnimation() {
+      clearInterval(typingIntervalId);
+      typingIntervalId = setInterval(eraseLastLetter, 30);
+    }
+
+    function eraseLastLetter() {
+      const dynamicRoleElement = document.getElementById("dynamic-role");
+      const currentRole = roles[currentIndex];
+      dynamicRoleElement.textContent = currentRole.substring(
+        0,
+        currentLetterIndex - 1
+      );
+      currentLetterIndex--;
+
+      if (currentLetterIndex <= 0) {
+        clearInterval(typingIntervalId);
+        setTimeout(startNextRoleAnimation, 200);
+      }
+    }
+
+    function startNextRoleAnimation() {
+      currentIndex = (currentIndex + 1) % roles.length;
+      startTypingAnimation();
+    }
+  }
+
+  initTypingAnimation();

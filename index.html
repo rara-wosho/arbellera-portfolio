@@ -53,14 +53,15 @@
           >
             <!-- <h1 class="fw-normal">Hello, <span></span></h1>
             <h1>My Name is <span></span></h1> -->
-            <h1 class="hero-name fw-bold mb-3 text-center text-lg-start">
+            <h1 class="hero-name fw-bold mb-4 text-center text-lg-start">
               Mae Hysel Arbellera<span></span>
             </h1>
-            <p class="scroll-fade-left del-1 mb-3 fs-2 text-light pt-2">
-              Civil Engineer
-            </p>
             <p
-              class="scroll-fade-left del-2 mb-2 text-light text-center text-lg-start"
+              id="dynamic-role"
+              class="position-relative scroll-fade-left del-1 mb-3 fs-2 text-light pt-2 ps-3"
+            ></p>
+            <p
+              class="scroll-fade-left del-2 mb-2 mt-3 text-light text-center text-lg-start"
             >
               Designing the future with precision and passion. Crafting
               sustainable and innovative solutions for tomorrow's
@@ -165,12 +166,12 @@
           >
             Mae Hysel Arbellera
           </h1>
-          <h2 class="scroll-fade-left del-2 fs-1 mb-4">Civil Engineer</h2>
-          <p class="scroll-fade-left del-3 border-bottom pb-5 fs-3">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Asperiores, velit alias eius non illum beatae atque repellat ratione
-            qui veritatis repudiandae adipisci maiores. At inventore
-            necessitatibus deserunt exercitationem cumque earum omnis ipsum
+          <h2 class="scroll-fade-left del-2 fs-2 pb-2 mb-4 fw-semibold">
+            Civil Engineer / Draftsman / Estimator
+          </h2>
+          <p class="scroll-fade-left del-3 border-bottom pb-5 fs-3 text-dark fw-normal">
+            A highly motivated and experienced Civil Drafter/Estimator with a
+            proven track record of creating and producing detailed drawings.
           </p>
           <p class="scroll-fade-left del-4 fs-4 fw-bold pb-5 mb-0">
             <svg
@@ -194,7 +195,8 @@
             class="d-flex justify-content-center justify-content-md-start scroll-fade-left del-5"
           >
             <a
-              href="./resume/maearbelleracv.pdf"
+              target="_blank"
+              href="./resume/arbelleraupdatedcv-june2024.pdf"
               class="btn-main-outline rounded-4"
               id="download-cv"
             >
@@ -1244,7 +1246,7 @@
 
     <script src="https://web3forms.com/client/script.js" async defer></script>
 
-    <!-- converted to jquery -->
+    <!-- converted to jquery contact form -->
     <script>
       $(document).ready(function () {
         const form = $("#form");
@@ -1326,8 +1328,9 @@
           event.preventDefault();
           const url = $(this).attr("href");
           const a = $("<a>")
+            .attr("target", "_blank")
             .attr("href", url)
-            .attr("download", "maearbelleracv.pdf")
+            .attr("download", "arbelleraupdatedcv-june2024.pdf")
             .appendTo("body");
           a[0].click();
           a.remove();
@@ -1357,7 +1360,7 @@
           });
         }
 
-        setActiveLink(); // Call on page load
+        setActiveLink();
 
         $(window).on("scroll", function () {
           setActiveLink(); // Call on scroll
