@@ -473,6 +473,7 @@ section {
   list-style-type: disc !important;
   position: relative;
   padding-left: 1.5rem;
+  text-align: start;
 }
 
 .project-desc li::before {
