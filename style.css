@@ -454,15 +454,29 @@ section {
 }
 
 .exp-time li p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 .project-desc li {
   display: flex;
   justify-content: start;
   color: var(--bg-white);
   padding-block: 4px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   list-style-type: disc !important;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.project-desc li::before {
+  content: "•";
+  color: var(--txt-white);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 23px;
+  line-height: 20px;
+  padding-bottom: 4px;
 }
 /* End Services Section */
 
@@ -493,7 +507,7 @@ section {
   border-radius: 10px;
 }
 #projects .project-info {
-  padding: 30px;
+  padding: 30px 30px;
   flex-basis: 50%;
   height: 100%;
   display: flex;
@@ -504,7 +518,7 @@ section {
   color: white;
 }
 #projects .project-info h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 500;
 }
 #projects .project-info h2 {
@@ -1326,6 +1340,7 @@ button.view-btn:active {
   }
   #projects .all-projects .project-info {
     height: 100%;
+    padding: 30px 50px;
   }
   #projects .all-projects .project-img {
     height: 100%;
@@ -1430,6 +1445,9 @@ button.view-btn:active {
   #projects .project-item {
     height: 400px;
   }
+  #projects .all-projects .project-info {
+    padding: 30px 60px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -1458,6 +1476,11 @@ button.view-btn:active {
 
   .skill-sets .skill-item {
     width: 40%;
+  }
+
+  #projects .all-projects .project-info {
+    height: 100%;
+    padding: 30px 60px;
   }
   /* End header */
 }
